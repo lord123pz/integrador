@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.safemine.ui.dashboard.DashboardFragment"
+        android:label="Dashboard" />
+
+    <fragment
+        android:id="@+id/deviceFragment"
+        android:name="com.safemine.ui.device.DeviceFragment"
+        android:label="Devices" />
+
+    <fragment
+        android:id="@+id/alertsFragment"
+        android:name="com.safemine.ui.alerts.AlertsFragment"
+        android:label="Alerts" />
+
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.safemine.ui.tickets.TicketsFragment"
+        android:label="Tickets" />
+
+    <fragment
+        android:id="@+id/newTicketFragment"
+        android:name="com.safemine.ui.tickets.NewTicketFragment"
+        android:label="New Ticket" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.safemine.ui.chat.ChatFragment"
+        android:label="Chat" />
+
+    <fragment
+        android:id="@+id/docsFragment"
+        android:name="com.safemine.ui.docs.DocsFragment"
+        android:label="Docs" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.safemine.ui.profile.ProfileFragment"
+        android:label="Profile" />
+</navigation>
