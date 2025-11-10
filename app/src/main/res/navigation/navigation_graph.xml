@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.safemine.ui.dashboard.DashboardFragment"
+        android:label="Dashboard" />
+
+    <fragment
+        android:id="@+id/deviceFragment"
+        android:name="com.safemine.ui.device.DeviceFragment"
+        android:label="Mi Dispositivo" />
+
+    <fragment
+        android:id="@+id/alertsFragment"
+        android:name="com.safemine.ui.alerts.AlertsFragment"
+        android:label="Alertas" />
+
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.safemine.ui.tickets.TicketsFragment"
+        android:label="Mis Tickets">
+        <action
+            android:id="@+id/action_ticketsFragment_to_newTicketFragment"
+            app:destination="@id/newTicketFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newTicketFragment"
+        android:name="com.safemine.ui.tickets.NewTicketFragment"
+        android:label="Nuevo Ticket" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.safemine.ui.chat.ChatFragment"
+        android:label="Chat en Vivo" />
+
+    <fragment
+        android:id="@+id/docsFragment"
+        android:name="com.safemine.ui.docs.DocsFragment"
+        android:label="Documentación" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.safemine.ui.profile.ProfileFragment"
+        android:label="Perfil" />
+</navigation>

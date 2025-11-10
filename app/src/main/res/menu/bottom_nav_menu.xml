@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboardFragment"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard" />
+    <item
+        android:id="@+id/deviceFragment"
+        android:title="Mi Dispositivo"
+        android:icon="@drawable/ic_watch" />
+    <item
+        android:id="@+id/alertsFragment"
+        android:title="Alertas"
+        android:icon="@drawable/ic_alert" />
+    <item
+        android:id="@+id/ticketsFragment"
+        android:title="Tickets"
+        android:icon="@drawable/ic_ticket" />
+    <item
+        android:id="@+id/chatFragment"
+        android:title="Chat"
+        android:icon="@drawable/ic_chat" />
+</menu>
