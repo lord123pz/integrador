@@ -1,14 +1,6 @@
 package com.safemine.data.repository
 
-import com.safemine.data.model.Alert
-import com.safemine.data.model.AlertSeverity
-import com.safemine.data.model.Device
-import com.safemine.data.model.Role
-import com.safemine.data.model.SensorReading
-import com.safemine.data.model.Ticket
-import com.safemine.data.model.TicketPriority
-import com.safemine.data.model.TicketStatus
-import com.safemine.data.model.User
+import com.safemine.data.model.*
 
 class FakeRepository {
 
