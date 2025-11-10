@@ -1,14 +1,9 @@
 package com.safemine.data.model
 
-import java.time.Instant
-
-/**
- * Captures real-time measurements emitted by a device sensor.
- */
 data class SensorReading(
-    val id: String,
-    val deviceId: String,
-    val type: String,
-    val value: Double,
-    val recordedAt: Instant
+    val nombre: String,      // H2S (Sulfuro de Hidrógeno)
+    val unidad: String,      // ppm / µg/m³ / %
+    val valorActual: Double,
+    val limiteSeguro: Double,
+    val estado: String       // "Seguro", "Advertencia", "Crítico"
 )

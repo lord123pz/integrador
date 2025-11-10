@@ -1,54 +1,27 @@
 package com.safemine.ui.main
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.safemine.R
+import com.safemine.databinding.ActivityMainBinding
 
-/**
- * Hosts the primary navigation graph for the SafeMine application.
- */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val container = FrameLayout(this).apply {
-            id = ViewCompat.generateViewId()
-            layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-            )
-            contentDescription = "SafeMine navigation host"
-        }
+        setSupportActionBar(binding.topAppBar)
 
-        setContentView(container)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(container.id, PlaceholderFragment())
-                .commitNow()
-        }
-    }
-
-    /**
-     * Placeholder fragment until the navigation graph wiring is completed.
-     */
-    class PlaceholderFragment : androidx.fragment.app.Fragment() {
-        override fun onCreateView(
-            inflater: android.view.LayoutInflater,
-            container: android.view.ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View {
-            return FrameLayout(inflater.context).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                setBackgroundResource(android.R.color.white)
-            }
-        }
+        binding.bottomNav.setupWithNavController(navController)
     }
 }

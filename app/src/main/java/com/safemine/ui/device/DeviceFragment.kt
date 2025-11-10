@@ -1,28 +1,49 @@
 package com.safemine.ui.device
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import com.safemine.data.repository.FakeRepository
+import com.safemine.databinding.FragmentDeviceBinding
 
-/**
- * Shows the status of connected safety devices.
- */
 class DeviceFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return TextView(inflater.context).apply {
-            text = "Device list will appear here"
-            textSize = 16f
-            gravity = Gravity.CENTER
-            setPadding(32, 32, 32, 32)
+    private var _binding: FragmentDeviceBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel: DeviceViewModel by viewModels {
+        DeviceViewModel.Factory(FakeRepository())
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentDeviceBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val adapter = SensorAdapter()
+        binding.rvSensores.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rvSensores.adapter = adapter
+
+        viewModel.device.observe(viewLifecycleOwner) { device ->
+            binding.tvNombreOperador.text = viewModel.user.value?.let { "${it.nombre} ${it.apellido}" }
+            binding.tvRol.text = viewModel.user.value?.cargo
+            binding.tvUbicacionDispositivo.text = device.ubicacion
+            binding.tvIdDispositivo.text = "Dispositivo: ${device.id}"
+            binding.progressBateria.progress = device.bateria
         }
+
+        viewModel.sensors.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

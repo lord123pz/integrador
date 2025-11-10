@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.safemine"
+    namespace = "com.safemine"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.safemine"
+        applicationId = "com.safemine"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -38,20 +38,21 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 }
 
 dependencies {
     // Material Design
     implementation("com.google.android.material:material:1.12.0")
-// Navigation Component
+    // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.0")
-// Lifecycle / ViewModel / LiveData
+    // Lifecycle / ViewModel / LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
-// RecyclerView
+    // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

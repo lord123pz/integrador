@@ -1,23 +1,13 @@
 package com.safemine.data.model
 
-import java.time.Instant
+enum class TicketStatus { ABIERTO, EN_PROGRESO, RESUELTO }
+enum class TicketPriority { ALTA, MEDIA, BAJA }
 
-/**
- * Represents a work ticket raised from an alert or manual user action.
- */
 data class Ticket(
-    val id: String,
-    val title: String,
-    val description: String,
-    val status: TicketStatus,
-    val createdAt: Instant,
-    val updatedAt: Instant,
-    val assignedTo: User?
+    val id: String,           // TKT-001
+    val titulo: String,       // "Dispositivo WCH-004 no sincroniza"
+    val prioridad: TicketPriority,
+    val estado: TicketStatus,
+    val creado: String,       // "05/10/2024 10:30"
+    val actualizado: String   // "Hace 2 horas"
 )
-
-enum class TicketStatus {
-    OPEN,
-    IN_PROGRESS,
-    RESOLVED,
-    CLOSED
-}
